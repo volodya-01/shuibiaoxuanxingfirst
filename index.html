@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv=X-UA-clsCompatible content="IE=edge,chrome=1">
+  <meta name="renderer" content="webkit">
+<!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+  <title>水表选型工具</title>
+  <script type="text/javascript" src="static/js/flex.js"></script>
+  <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+    }
+  </style>
+  <script>
+    //使用JS控制rem作为单位进行计算
+    (function (doc, win) {
+      var docEl = doc.documentElement,
+        resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+        recalc = function () {
+
+          var clientWidth = docEl.clientWidth;
+          var clientHeight = docEl.clientHeight;
+         /*  console.log(clientWidth)
+          console.log(clientHeight) */
+          if (!clientWidth) return;
+          if (clientWidth >= 750) {
+            docEl.style.fontSize = '100px';
+          } 
+          else {
+            docEl.style.fontSize = 100 * (clientWidth / 750) + 'px';
+          }
+        };
+
+      if (!doc.addEventListener) return;
+      win.addEventListener(resizeEvt, recalc, false);
+
+      doc.addEventListener('DOMContentLoaded', recalc, false);
+      /*DOMContentLoaded文档加载完成不包含图片资源 onload包含图片资源*/
+    })(document, window);
+
+    //或者
+    //window.onload=function(){
+    //1、首次加载时，调用动态设置rem的api
+
+    // setRemSize();
+    //2、当用户企图更改浏览器宽度 自动获取屏幕宽度，再计算rem赋值给根元素的font-size
+    // window.addEventListener('resize',setRemSize,false);//resize--浏览器宽度改变时触发
+    /*window.onresize=function(){                                          //onresize浏览器尺寸改变事件
+        setRemSize();
+    }*/
+    // function setRemSize(){
+    //在任何尺寸中都可以获得rem值
+    //获得屏幕的宽度   rem=屏幕宽度/7.5+"px"
+    // var _clientWidth=document.documentElement.clientWidth/7.5+'px';
+    // console.log(_clientWidth);
+    //将得到的rem值复制给根元素的font-size
+    //  document.documentElement.style.fontSize=_clientWidth;
+    // }
+
+    // }
+
+  </script>
+</head>
+
+<body>
+  <div id="app"></div>
+  <!-- built files will be auto injected -->
+</body>
+
+</html>
+<script src="./static/js/modernizr-2.0.6.js"></script>
+<!-- <script>
+  $(window).resize(function ()// 绑定到窗口的这个事件中
+{
+  var whdef = 100/1920;// 表示1920的设计图,使用100PX的默认值
+  var wH = window.innerHeight;// 当前窗口的高度
+  var wW = window.innerWidth;// 当前窗口的宽度
+  var rem = wW * whdef;// 以默认比例值乘以当前窗口宽度,得到该宽度下的相应FONT-SIZE值
+  $('html').css('font-size', rem + "px");
+});
+
+//last
+// 动态计算屏幕的宽度，从而得到网页的fontSize大小
+(function (doc, win) {
+    var docEl = doc.documentElement,
+        resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+        recalc = function () {
+            var clientWidth = docEl.clientWidth;
+            if (!clientWidth) return;
+            if(clientWidth>750) clientWidth=750;//这里限制最大的宽度尺寸，从而实现PC端的两边留白等
+            docEl.style.fontSize = 10 * (clientWidth / 320) + 'px';
+        };
+
+    if (!doc.addEventListener) return;
+    win.addEventListener(resizeEvt, recalc, false);
+    doc.addEventListener('DOMContentLoaded', recalc, false);
+})(document, window); -->
+<!-- </script>  -->
